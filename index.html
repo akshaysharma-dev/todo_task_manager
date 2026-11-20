@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List &amp; Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- animated background -->
+  <div class="bg">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <div class="grid"></div>
+  </div>
+
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow" id="greeting">Hello</p>
+        <h1>My <span class="grad">Tasks</span></h1>
+        <p class="date" id="today"></p>
+      </div>
+      <div class="ring-wrap" title="Progress">
+        <svg viewBox="0 0 44 44" class="ring">
+          <circle class="ring-bg" cx="22" cy="22" r="18" />
+          <circle class="ring-fg" id="ringFg" cx="22" cy="22" r="18" />
+        </svg>
+        <span id="ringText">0%</span>
+      </div>
+    </header>
+
+    <form id="taskForm" class="task-form">
+      <input type="text" id="taskInput" placeholder="Add a new task..." maxlength="120" autocomplete="off" />
+      <select id="priorityInput" aria-label="Priority">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button type="submit" id="addBtn" aria-label="Add task"><span>+</span></button>
+    </form>
+    <p class="error" id="errorMsg"></p>
+
+    <div class="stats">
+      <div class="stat"><b id="statTotal">0</b><span>Total</span></div>
+      <div class="stat"><b id="statActive">0</b><span>Active</span></div>
+      <div class="stat"><b id="statDone">0</b><span>Done</span></div>
+    </div>
+
+    <div class="filters" id="filters">
+      <span class="pill" id="pill"></span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+    <div id="emptyMsg" class="empty">
+      <div class="empty-icon">✨</div>
+      <p>Nothing here yet. Add your first task!</p>
+    </div>
+
+    <div class="footer-actions">
+      <button id="clearCompleted" class="ghost">Clear completed</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
